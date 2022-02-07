@@ -1,4 +1,4 @@
-import SineWaves from "https://isuttell.github.io/sine-waves/javascripts/sine-waves.min.js";
+import { SineWaves } from "https://isuttell.github.io/sine-waves/javascripts/sine-waves.min.js";
 
 console.log(SineWaves);
 
