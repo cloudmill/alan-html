@@ -1,4 +1,4 @@
-import SineWaves from "./sine-waves";
+import SineWaves from "./sine-waves.js";
 
 console.log(SineWaves);
 
