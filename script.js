@@ -1,6 +1,6 @@
 import "./sine-waves.js";
 
-console.log(SineWaves);
+// console.log(SineWaves);
 
 window.addEventListener("DOMContentLoaded", () => {
   try {
