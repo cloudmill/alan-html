@@ -1,8 +1,3 @@
-// import "./sine-waves.js";
-import "https://cdn.jsdelivr.net/npm/udesly-video-player@latest/udesly-video-player.umd.js";
-
-// console.log(SineWaves);
-
 window.addEventListener("DOMContentLoaded", () => {
   try {
     const preloaderVid = document.getElementById("preloader-vid");
