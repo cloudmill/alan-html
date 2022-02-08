@@ -166,34 +166,40 @@ window.addEventListener("DOMContentLoaded", () => {
             lineWidth: 1,
             amplitude: -400,
             waveLength: 400,
+            segmentLength: 15,
           },
           {
             type: "SineWave",
             segmentLength: 1,
+            segmentLength: 15,
           },
           {
             timeModifier: 2,
             lineWidth: 1,
             amplitude: -370,
             wavelength: 100,
+            segmentLength: 15,
           },
           {
             timeModifier: 1,
             lineWidth: 1,
             amplitude: -500,
             wavelength: 350,
+            segmentLength: 15,
           },
           {
             timeModifier: 0.5,
             lineWidth: 1,
             amplitude: -380,
             wavelength: 180,
+            segmentLength: 15,
           },
           {
             timeModifier: 0.4,
             lineWidth: 1,
             amplitude: -300,
             wavelength: 200,
+            segmentLength: 15,
           },
         ],
 
@@ -220,11 +226,15 @@ window.addEventListener("DOMContentLoaded", () => {
         running: false,
 
         width: function () {
-          return $(window).width();
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().width;
         },
 
         height: function () {
-          return $(window).height();
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().height;
         },
 
         ease: "SineInOut",
@@ -237,34 +247,40 @@ window.addEventListener("DOMContentLoaded", () => {
             lineWidth: 1,
             amplitude: -400,
             waveLength: 400,
+            segmentLength: 15,
           },
           {
             type: "SineWave",
             segmentLength: 1,
+            segmentLength: 15,
           },
           {
             timeModifier: 2,
             lineWidth: 1,
             amplitude: -370,
             wavelength: 100,
+            segmentLength: 15,
           },
           {
             timeModifier: 1,
             lineWidth: 1,
             amplitude: -500,
             wavelength: 350,
+            segmentLength: 15,
           },
           {
             timeModifier: 0.5,
             lineWidth: 1,
             amplitude: -380,
             wavelength: 180,
+            segmentLength: 15,
           },
           {
             timeModifier: 0.4,
             lineWidth: 1,
             amplitude: -300,
             wavelength: 200,
+            segmentLength: 15,
           },
         ],
 
