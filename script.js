@@ -93,20 +93,20 @@ window.addEventListener("DOMContentLoaded", () => {
       );
 
       allMuteAll.forEach((muteAll) =>
-        muteAll.addEventListener("click", ({ target }) => {
-          if (target !== curMuteAll) {
+        muteAll.addEventListener("click", ({ currentTarget }) => {
+          if (currentTarget !== curMuteAll) {
             resetAllTab();
 
-            curMuteAll = target;
+            curMuteAll = currentTarget;
           }
         })
       );
 
       allSoundSwitch.forEach((soundSwitch) =>
-        soundSwitch.addEventListener("click", ({ target }) => {
-          const tab = target.closest(".tab-pane");
-          const offButton = target.querySelector(".mute_bt_off");
-          const onButton = target.querySelector(".mute_bt");
+        soundSwitch.addEventListener("click", ({ currentTarget }) => {
+          const tab = currentTarget.closest(".tab-pane");
+          const offButton = currentTarget.querySelector(".mute_bt_off");
+          const onButton = currentTarget.querySelector(".mute_bt");
           const video = tab.querySelector("video");
           const isMuted = video.muted;
 
