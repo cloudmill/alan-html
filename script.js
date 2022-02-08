@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   const updateVideoObserver = () => {
-    videoObserver.rootMargin = `${document.documentElement.clientHeight}px 0`;
+    videoObserver.rootMargin = `1620px 0`;
   };
   updateVideoObserver();
 
