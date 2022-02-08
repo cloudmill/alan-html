@@ -12,4 +12,12 @@ window.addEventListener("DOMContentLoaded", () => {
       video.play();
     }
   } catch {}
+
+  const allVideo = document.querySelectorAll("video:not(.always-play)");
+
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      console.log(entry);
+    });
+  });
 });
