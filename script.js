@@ -1,13 +1,19 @@
 window.addEventListener("DOMContentLoaded", () => {
   // legacy
-  try {
-    const allVideo = document.getElementsByTagName("video");
+  {
+    try {
+      var vid = document.getElementById("preloader-vid");
+      vid.playbackRate = 1.5;
+    } catch {}
 
-    allVideo.forEach((video) => {
-      video.setAttribute("muted", "");
-      video.setAttribute("playsinline", "");
-    });
-  } catch {}
+    try {
+      for (video of document.getElementsByTagName("video")) {
+        video.setAttribute("playsinline", "");
+        video.setAttribute("muted", "");
+        video.play();
+      }
+    } catch {}
+  }
 
   // video play/pause on scroll
   {
