@@ -18,8 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const allVideo = document.querySelectorAll("video:not(.always-play)");
 
   if (allVideo.length) {
-    let videoObserver = null;
-
     const handleVideoIntersection = (entries) => {
       entries.forEach(({ isIntersecting, video }) => {
         try {
@@ -30,29 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
           }
         } catch {}
       });
-
-      console.log(entries);
     };
 
-    const updateVideoObserver = () => {
-      if (videoObserver) {
-        videoObserver.disconnect();
-      }
-
-      videoObserver = new IntersectionObserver(handleVideoIntersection, {
-        rootMargin: `${Math.ceil(
-          document.documentElement.clientHeight * 1.5
-        )}px 0`,
+    try {
+      const videoObserver = new IntersectionObserver(handleVideoIntersection, {
+        rootMargin: "150% 0px",
       });
 
       allVideo.forEach((video) => videoObserver.observe(video));
-
-      console.log(videoObserver, videoObserver.rootMargin);
-    };
-
-    updateVideoObserver();
-    ["load", "resize"].forEach((eventType) =>
-      window.addEventListener(eventType, updateVideoObserver)
-    );
+    } catch {}
   }
 });
