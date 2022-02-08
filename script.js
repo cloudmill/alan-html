@@ -145,11 +145,15 @@ window.addEventListener("DOMContentLoaded", () => {
         running: false,
 
         width: function () {
-          return $(window).width();
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().width;
         },
 
         height: function () {
-          return $(window).height();
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().height;
         },
 
         ease: "SineInOut",
