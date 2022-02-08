@@ -42,4 +42,79 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  // tabs videos
+  {
+    const allVideo = document.querySelectorAll(".always-play");
+    const allMuteAll = document.querySelectorAll(".mute_all");
+    const allSoundSwitch = document.querySelectorAll(".video_click_div");
+
+    if (allVideo.length && allMuteAll.length && allSwitch.length) {
+      const rewindAllVideo = () => {
+        allVideo.forEach((video) => {
+          try {
+            video.currentTime = 0;
+          } catch (e) {
+            console.error(e);
+          }
+        });
+      };
+
+      const muteAllVideo = () => {
+        allVideo.forEach((video) => {
+          try {
+            video.muted = true;
+          } catch (e) {
+            console.error(e);
+          }
+        });
+      };
+
+      const resetAllSoundSwitch = () => {
+        allSoundSwitch.forEach((soundSwitch) => {
+          const offButton = soundSwitch.querySelector(".mute_bt_off");
+          const onButton = soundSwitch.querySelector(".mute_bt");
+
+          offButton.style.opacity = 0;
+          onButton.style.opacity = 1;
+        });
+      };
+
+      const resetAllTab = () => {
+        rewindAllVideo();
+        muteAllVideo();
+        resetAllSoundSwitch();
+      };
+
+      resetAllTab();
+
+      let curMuteAll = [...allMuteAll].find((muteAll) =>
+        muteAll.classList.contains("w--current")
+      );
+
+      allMuteAll.forEach((muteAll) =>
+        muteAll.addEventListener("click", ({ target }) => {
+          if (target !== curMuteAll) {
+            resetAllTab();
+
+            curMuteAll = target;
+          }
+        })
+      );
+
+      allSoundSwitch.forEach((soundSwitch) =>
+        soundSwitch.addEventListener("click", ({ target }) => {
+          const tab = target.closest(".tab-pane");
+          const offButton = target.querySelector(".mute_bt_off");
+          const onButton = target.querySelector(".mute_bt");
+          const video = tab.querySelector("video");
+          const isMuted = video.muted;
+
+          video.muted = !isMuted;
+          offButton.style.opacity = +isMuted;
+          onButton.style.opacity = +!isMuted;
+        })
+      );
+    }
+  }
 });
