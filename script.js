@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   updateVideoObserver();
 
-  [("load", "resize")].forEach((eventType) =>
+  ["load", "resize"].forEach((eventType) =>
     window.addEventListener(eventType, updateVideoObserver)
   );
 
