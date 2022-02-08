@@ -298,8 +298,8 @@ window.addEventListener("DOMContentLoaded", () => {
             // if (interval) {
             //   clearInterval(interval);
             // }
-            waves1.running = true;
-            waves2.running = true;
+            waves1.running = false;
+            waves2.running = false;
           }
         });
       };
