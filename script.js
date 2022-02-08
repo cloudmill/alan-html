@@ -272,6 +272,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const tick = () => {
       waves1.update();
       waves2.update();
+      
+      console.log("tick");
     };
 
     const handleWavesIntersection = (entries) => {
