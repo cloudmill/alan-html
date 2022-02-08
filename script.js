@@ -20,4 +20,6 @@ window.addEventListener("DOMContentLoaded", () => {
       console.log(entry);
     });
   });
+
+  allVideo.forEach((video) => videoObserver.observe(video));
 });
