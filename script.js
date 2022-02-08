@@ -112,8 +112,8 @@ window.addEventListener("DOMContentLoaded", () => {
   {
     let interval = null;
 
-    const FPS = 24;
-    const SPEED = (60 / FPS) * 3;
+    const FPS = 30;
+    const SPEED = (60 / FPS) * 2.5;
     const INTERVAL = 1000 / FPS;
 
     var waves1 = new SineWaves({
@@ -296,6 +296,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     try {
       for (video of document.getElementsByTagName("video")) {
+        console.log(video);
         video.setAttribute("playsinline", "");
         video.setAttribute("muted", "");
         video.play();
