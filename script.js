@@ -1,4 +1,24 @@
 window.addEventListener("DOMContentLoaded", () => {
+  // legacy
+  {
+    try {
+      var vid = document.getElementById("preloader-vid");
+      vid.playbackRate = 1.5;
+    } catch (e) {
+      console.error(e);
+    }
+
+    try {
+      for (const video of document.getElementsByTagName("video")) {
+        video.setAttribute("playsinline", "");
+        video.setAttribute("muted", "");
+        video.play();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   // video play/pause on scroll
   {
     const allVideo = document.querySelectorAll("video:not(.always-play)");
@@ -283,26 +303,5 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     wavesObserver.observe(document.querySelector(".waves-wrapper"));
-  }
-
-  // legacy
-  {
-    try {
-      var vid = document.getElementById("preloader-vid");
-      vid.playbackRate = 1.5;
-    } catch (e) {
-      console.error(e);
-    }
-
-    try {
-      for (video of document.getElementsByTagName("video")) {
-        console.log(video);
-        video.setAttribute("playsinline", "");
-        video.setAttribute("muted", "");
-        video.play();
-      }
-    } catch (e) {
-      console.error(e);
-    }
   }
 });
