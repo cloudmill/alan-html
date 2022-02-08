@@ -130,178 +130,180 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // waves
   {
-    let interval = null;
+    if (matchMedia("(min-width: 480px)").matches) {
+      let interval = null;
 
-    const FPS = 30;
-    const SPEED = (60 / FPS) * 2.5;
-    const INTERVAL = 1000 / FPS;
+      const FPS = 30;
+      const SPEED = (60 / FPS) * 2.5;
+      const INTERVAL = 1000 / FPS;
 
-    var waves1 = new SineWaves({
-      el: document.getElementById("waves"),
+      var waves1 = new SineWaves({
+        el: document.getElementById("waves"),
 
-      speed: SPEED,
-      running: false,
+        speed: SPEED,
+        running: false,
 
-      width: function () {
-        return $(window).width();
-      },
-
-      height: function () {
-        return $(window).height();
-      },
-
-      ease: "SineInOut",
-
-      wavesWidth: "100%",
-
-      waves: [
-        {
-          timeModifier: 3,
-          lineWidth: 1,
-          amplitude: -400,
-          waveLength: 400,
+        width: function () {
+          return $(window).width();
         },
-        {
-          type: "SineWave",
-          segmentLength: 1,
+
+        height: function () {
+          return $(window).height();
         },
-        {
-          timeModifier: 2,
-          lineWidth: 1,
-          amplitude: -370,
-          wavelength: 100,
-        },
-        {
-          timeModifier: 1,
-          lineWidth: 1,
-          amplitude: -500,
-          wavelength: 350,
-        },
-        {
-          timeModifier: 0.5,
-          lineWidth: 1,
-          amplitude: -380,
-          wavelength: 180,
-        },
-        {
-          timeModifier: 0.4,
-          lineWidth: 1,
-          amplitude: -300,
-          wavelength: 200,
-        },
-      ],
 
-      // Called on window resize
-      resizeEvent: function () {
-        var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-        gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
-        gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
-        gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
+        ease: "SineInOut",
 
-        var index = -1;
-        var length = this.waves.length;
-        for (index = 0; index < length; index++) {
-          this.waves[index].strokeStyle = gradient;
-        }
+        wavesWidth: "100%",
 
-        // Clean Up
-      },
-    });
-    var waves2 = new SineWaves({
-      el: document.getElementById("waves_2"),
+        waves: [
+          {
+            timeModifier: 3,
+            lineWidth: 1,
+            amplitude: -400,
+            waveLength: 400,
+          },
+          {
+            type: "SineWave",
+            segmentLength: 1,
+          },
+          {
+            timeModifier: 2,
+            lineWidth: 1,
+            amplitude: -370,
+            wavelength: 100,
+          },
+          {
+            timeModifier: 1,
+            lineWidth: 1,
+            amplitude: -500,
+            wavelength: 350,
+          },
+          {
+            timeModifier: 0.5,
+            lineWidth: 1,
+            amplitude: -380,
+            wavelength: 180,
+          },
+          {
+            timeModifier: 0.4,
+            lineWidth: 1,
+            amplitude: -300,
+            wavelength: 200,
+          },
+        ],
 
-      speed: SPEED,
-      running: false,
+        // Called on window resize
+        resizeEvent: function () {
+          var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
+          gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
+          gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
 
-      width: function () {
-        return $(window).width();
-      },
-
-      height: function () {
-        return $(window).height();
-      },
-
-      ease: "SineInOut",
-
-      wavesWidth: "100%",
-
-      waves: [
-        {
-          timeModifier: 3,
-          lineWidth: 1,
-          amplitude: -400,
-          waveLength: 400,
-        },
-        {
-          type: "SineWave",
-          segmentLength: 1,
-        },
-        {
-          timeModifier: 2,
-          lineWidth: 1,
-          amplitude: -370,
-          wavelength: 100,
-        },
-        {
-          timeModifier: 1,
-          lineWidth: 1,
-          amplitude: -500,
-          wavelength: 350,
-        },
-        {
-          timeModifier: 0.5,
-          lineWidth: 1,
-          amplitude: -380,
-          wavelength: 180,
-        },
-        {
-          timeModifier: 0.4,
-          lineWidth: 1,
-          amplitude: -300,
-          wavelength: 200,
-        },
-      ],
-
-      // Called on window resize
-      resizeEvent: function () {
-        var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-        gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
-        gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
-        gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
-
-        var index = -1;
-        var length = this.waves.length;
-        for (index = 0; index < length; index++) {
-          this.waves[index].strokeStyle = gradient;
-        }
-
-        // Clean Up
-      },
-    });
-
-    const tick = () => {
-      waves1.update();
-      waves2.update();
-
-      console.log("tick");
-    };
-
-    const handleWavesIntersection = (entries) => {
-      entries.forEach(({ isIntersecting }) => {
-        if (isIntersecting) {
-          interval = setInterval(tick, INTERVAL);
-        } else {
-          if (interval) {
-            clearInterval(interval);
+          var index = -1;
+          var length = this.waves.length;
+          for (index = 0; index < length; index++) {
+            this.waves[index].strokeStyle = gradient;
           }
-        }
+
+          // Clean Up
+        },
       });
-    };
+      var waves2 = new SineWaves({
+        el: document.getElementById("waves_2"),
 
-    const wavesObserver = new IntersectionObserver(handleWavesIntersection, {
-      rootMargin: "20% 0px",
-    });
+        speed: SPEED,
+        running: false,
 
-    wavesObserver.observe(document.querySelector(".waves-wrapper"));
+        width: function () {
+          return $(window).width();
+        },
+
+        height: function () {
+          return $(window).height();
+        },
+
+        ease: "SineInOut",
+
+        wavesWidth: "100%",
+
+        waves: [
+          {
+            timeModifier: 3,
+            lineWidth: 1,
+            amplitude: -400,
+            waveLength: 400,
+          },
+          {
+            type: "SineWave",
+            segmentLength: 1,
+          },
+          {
+            timeModifier: 2,
+            lineWidth: 1,
+            amplitude: -370,
+            wavelength: 100,
+          },
+          {
+            timeModifier: 1,
+            lineWidth: 1,
+            amplitude: -500,
+            wavelength: 350,
+          },
+          {
+            timeModifier: 0.5,
+            lineWidth: 1,
+            amplitude: -380,
+            wavelength: 180,
+          },
+          {
+            timeModifier: 0.4,
+            lineWidth: 1,
+            amplitude: -300,
+            wavelength: 200,
+          },
+        ],
+
+        // Called on window resize
+        resizeEvent: function () {
+          var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
+          gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
+          gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
+
+          var index = -1;
+          var length = this.waves.length;
+          for (index = 0; index < length; index++) {
+            this.waves[index].strokeStyle = gradient;
+          }
+
+          // Clean Up
+        },
+      });
+
+      const tick = () => {
+        waves1.update();
+        waves2.update();
+
+        console.log("tick");
+      };
+
+      const handleWavesIntersection = (entries) => {
+        entries.forEach(({ isIntersecting }) => {
+          if (isIntersecting) {
+            interval = setInterval(tick, INTERVAL);
+          } else {
+            if (interval) {
+              clearInterval(interval);
+            }
+          }
+        });
+      };
+
+      const wavesObserver = new IntersectionObserver(handleWavesIntersection, {
+        rootMargin: "20% 0px",
+      });
+
+      wavesObserver.observe(document.querySelector(".waves-wrapper"));
+    }
   }
 });
