@@ -205,16 +205,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Called on window resize
         resizeEvent: function () {
-          var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-          gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
-          gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
-          gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
+          // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          // gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
+          // gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
+          // gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
 
-          var index = -1;
-          var length = this.waves.length;
-          for (index = 0; index < length; index++) {
-            this.waves[index].strokeStyle = gradient;
-          }
+          // var index = -1;
+          // var length = this.waves.length;
+          // for (index = 0; index < length; index++) {
+          //   this.waves[index].strokeStyle = gradient;
+          // }
+
+          this.waves.forEach(
+            (wave) => (wave.strokeStyle = "rgba(22, 106, 240, 1)")
+          );
 
           // Clean Up
         },
@@ -286,16 +290,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Called on window resize
         resizeEvent: function () {
-          var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-          gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
-          gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
-          gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
+          // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          // gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
+          // gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
+          // gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
 
-          var index = -1;
-          var length = this.waves.length;
-          for (index = 0; index < length; index++) {
-            this.waves[index].strokeStyle = gradient;
-          }
+          // var index = -1;
+          // var length = this.waves.length;
+          // for (index = 0; index < length; index++) {
+          //   this.waves[index].strokeStyle = gradient;
+          // }
+
+          this.waves.forEach(
+            (wave) => (wave.strokeStyle = "rgba(22, 106, 240, 1)")
+          );
 
           // Clean Up
         },
