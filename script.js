@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const allMuteAll = document.querySelectorAll(".mute_all");
     const allSoundSwitch = document.querySelectorAll(".video_click_div");
 
-    if (allVideo.length && allMuteAll.length && allSwitch.length) {
+    if (allVideo.length && allMuteAll.length && allSoundSwitch.length) {
       const rewindAllVideo = () => {
         allVideo.forEach((video) => {
           try {
