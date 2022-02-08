@@ -31,7 +31,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
   allVideo.forEach((video) => videoObserver.observe(video));
 
-  setInterval(() => {
-    allVideo.forEach((video) => console.log(video.currentTime));
-  }, 1000);
+  console.log(allVideo);
 });
