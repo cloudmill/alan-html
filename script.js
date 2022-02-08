@@ -21,12 +21,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const handleVideoIntersection = (entries) => {
       console.log(entries);
 
-      entries.forEach(({ isIntersecting, video }) => {
+      entries.forEach(({ isIntersecting, target }) => {
         try {
           if (isIntersecting) {
-            video.play();
+            target.play();
           } else {
-            video.pause();
+            target.pause();
           }
         } catch (e) {
           console.error(e);
