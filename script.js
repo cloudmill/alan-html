@@ -120,10 +120,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // waves
   {
+    let interval = null;
+
+    const FPS = 24;
+    const SPEED = (60 / FPS) * 3;
+    const INTERVAL = 1000 / FPS;
+
     var waves1 = new SineWaves({
       el: document.getElementById("waves"),
 
-      speed: 7.5,
+      speed: SPEED,
       running: false,
 
       width: function () {
@@ -194,7 +200,7 @@ window.addEventListener("DOMContentLoaded", () => {
     var waves2 = new SineWaves({
       el: document.getElementById("waves_2"),
 
-      speed: 7.5,
+      speed: SPEED,
       running: false,
 
       width: function () {
@@ -263,9 +269,27 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    setInterval(() => {
+    const tick = () => {
       waves1.update();
       waves2.update();
-    }, 1000 / 24);
+    };
+
+    const handleWavesIntersection = (entries) => {
+      entries.forEach(({ isIntersecting }) => {
+        if (isIntersecting) {
+          interval = setInterval(tick, INTERVAL);
+        } else {
+          if (interval) {
+            clearInterval(interval);
+          }
+        }
+      });
+    };
+
+    const wavesObserver = new IntersectionObserver(handleWavesIntersection, {
+      rootMargin: "120% 0px",
+    });
+
+    wavesObserver.observe(document.querySelector(".waves-wrapper"));
   }
 });
