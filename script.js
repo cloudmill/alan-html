@@ -4,8 +4,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const allVideo = document.getElementsByTagName("video");
 
     allVideo.forEach((video) => {
-      video.muted = true;
-      video.playsInline = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
     });
   } catch {}
 
@@ -272,7 +272,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const tick = () => {
       waves1.update();
       waves2.update();
-      
+
       console.log("tick");
     };
 
