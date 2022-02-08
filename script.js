@@ -26,7 +26,9 @@ window.addEventListener("DOMContentLoaded", () => {
           } else {
             video.pause();
           }
-        } catch {}
+        } catch (e) {
+          console.error(e);
+        }
       });
     };
 
@@ -36,6 +38,8 @@ window.addEventListener("DOMContentLoaded", () => {
       });
 
       allVideo.forEach((video) => videoObserver.observe(video));
-    } catch {}
+    } catch (e) {
+      console.error(e);
+    }
   }
 });
