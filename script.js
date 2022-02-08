@@ -19,6 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (allVideo.length) {
     const handleVideoIntersection = (entries) => {
+      console.log(entries);
+
       entries.forEach(({ isIntersecting, video }) => {
         try {
           if (isIntersecting) {
