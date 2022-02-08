@@ -29,15 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const updateVideoObserver = () => {
-    videoObserver.rootMargin = `1620px 0`;
-  };
-  updateVideoObserver();
-
-  ["load", "resize"].forEach((eventType) =>
-    window.addEventListener(eventType, updateVideoObserver)
-  );
-
   allVideo.forEach((video) => videoObserver.observe(video));
 
   setInterval(() => {
