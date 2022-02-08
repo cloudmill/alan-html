@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const videoObserver = new IntersectionObserver(
           handleVideoIntersection,
           {
-            rootMargin: "150% 0px",
+            rootMargin: "50% 0px",
           }
         );
 
@@ -287,7 +287,7 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     const wavesObserver = new IntersectionObserver(handleWavesIntersection, {
-      rootMargin: "120% 0px",
+      rootMargin: "20% 0px",
     });
 
     wavesObserver.observe(document.querySelector(".waves-wrapper"));
