@@ -82,11 +82,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const resetAllSoundSwitch = () => {
         allSoundSwitch.forEach((soundSwitch) => {
-          const offButton = soundSwitch.querySelector(".mute_bt_off");
-          const onButton = soundSwitch.querySelector(".mute_bt");
+          const inputCheckbox = soundSwitch.querySelector("input");
 
-          offButton.style.opacity = 0;
-          onButton.style.opacity = 1;
+          inputCheckbox.checked = false;
         });
       };
 
@@ -115,14 +113,11 @@ window.addEventListener("DOMContentLoaded", () => {
       allSoundSwitch.forEach((soundSwitch) =>
         soundSwitch.addEventListener("click", ({ currentTarget }) => {
           const tab = currentTarget.closest(".tab-pane");
-          const offButton = currentTarget.querySelector(".mute_bt_off");
-          const onButton = currentTarget.querySelector(".mute_bt");
           const video = tab.querySelector("video");
-          const isMuted = video.muted;
+          const inputCheckbox = tab.querySelector("input");
+          const checked = inputCheckbox.checked;
 
-          video.muted = !isMuted;
-          offButton.style.opacity = +isMuted;
-          onButton.style.opacity = +!isMuted;
+          video.muted = !checked;
         })
       );
     }
