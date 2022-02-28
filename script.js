@@ -334,4 +334,9 @@ window.addEventListener("DOMContentLoaded", () => {
       wavesObserver.observe(document.querySelector(".waves-wrapper"));
     }
   }
+
+  // alan-btn
+  {
+    console.log(alanBtnFake);
+  }
 });
