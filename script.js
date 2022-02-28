@@ -337,6 +337,47 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // alan-btn
   {
-    console.log(alanBtnFake);
+    const allAlanBtn = document.querySelectorAll(".alan-btn");
+
+    const wait = (time) => new Promise((res) => setTimeout(() => res(), time));
+
+    const startBtnAnimation = (btn) => {
+      wait(0)
+        .then(() => {
+          btn.switchState("listening");
+        })
+        .then(() => {
+          return wait(3000).then(() => {
+            btn.switchState("intermediate");
+          });
+        })
+        .then(() => {
+          return wait(3000).then(() => {
+            btn.switchState("understood");
+          });
+        })
+        .then(() => {
+          return wait(3000).then(() => {
+            btn.switchState("speaking");
+          });
+        })
+        .then(() => {
+          startBtnAnimation(btn);
+        });
+    };
+
+    allAlanBtn.forEach((alanBtn) => {
+      console.log(alanBtn);
+
+      const btn = alanBtnFake({
+        rootEl: alanBtn,
+        position: "absolute",
+        top: "0",
+        left: "0",
+        size: "50",
+      });
+
+      startBtnAnimation(btn);
+    });
   }
 });
