@@ -358,14 +358,14 @@ window.addEventListener("DOMContentLoaded", () => {
         interval: null,
       };
 
-      console.log('forEach', state);
+      console.log("forEach", { ...state });
 
       const updateSize = () => {
         state.size = String(
           Math.ceil(state.wrapper.getBoundingClientRect().width)
         );
 
-        console.log('updateSize', state);
+        console.log("updateSize", { ...state });
       };
       const updateBtn = () => {
         state.btn = alanBtnFake({
@@ -376,12 +376,12 @@ window.addEventListener("DOMContentLoaded", () => {
           size: state.size,
         });
 
-        console.log('updateBtn', state);
+        console.log("updateBtn", { ...state });
       };
       const updateStep = () => {
         state.step = 0;
 
-        console.log('updateStep', state);
+        console.log("updateStep", { ...state });
       };
 
       const normalizeStep = () => {
@@ -391,14 +391,14 @@ window.addEventListener("DOMContentLoaded", () => {
           state.step %= stepsCount;
         }
 
-        console.log('normalizeStep', state);
+        console.log("normalizeStep", { ...state });
       };
       const animateBtn = () => {
         normalizeStep();
 
         state.btn.switchState(ANIMATION_STEPS[state.step++]);
 
-        console.log("animateBtn", state);
+        console.log("animateBtn", { ...state });
       };
       const updateInterval = () => {
         if (state.interval) {
@@ -408,7 +408,7 @@ window.addEventListener("DOMContentLoaded", () => {
         animateBtn();
         state.interval = setInterval(animateBtn, ANIMATION_INTERVAL);
 
-        console.log('updateInterval', state);
+        console.log("updateInterval", { ...state });
       };
 
       const update = () => {
@@ -417,7 +417,7 @@ window.addEventListener("DOMContentLoaded", () => {
         updateStep();
         updateInterval();
 
-        console.log('update', state);
+        console.log("update", { ...state });
       };
 
       update();
