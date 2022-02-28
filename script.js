@@ -400,12 +400,12 @@ window.addEventListener("DOMContentLoaded", () => {
       };
 
       const update = () => {
+        console.log("update", state);
+
         updateSize();
         updateBtn();
         updateStep();
         updateInterval();
-
-        console.log("update", state);
       };
 
       update();
