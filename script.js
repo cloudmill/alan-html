@@ -395,6 +395,7 @@ window.addEventListener("DOMContentLoaded", () => {
           clearInterval(state.interval);
         }
 
+        animateBtn();
         state.interval = setInterval(animateBtn, ANIMATION_INTERVAL);
       };
 
