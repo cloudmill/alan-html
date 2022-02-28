@@ -337,7 +337,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // alan-btn
   {
-    const ANIMATION_INTERVAL = 10000;
+    const ANIMATION_INTERVAL = 3000;
     const ANIMATION_STEPS = [
       "listening",
       "intermediate",
@@ -420,9 +420,11 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log("update", { ...state });
       };
 
-      update();
-      window.addEventListener("load", update);
-      window.addEventListener("resize", update);
+      const updated = debounce(update, 150);
+
+      updated();
+      window.addEventListener("load", updated);
+      window.addEventListener("resize", updated);
     });
   }
 });
