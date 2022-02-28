@@ -384,11 +384,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       };
       const animateBtn = () => {
+        console.log("animateBtn", state);
+
         normalizeStep();
 
         state.btn.switchState(ANIMATION_STEPS[state.step++]);
-
-        console.log("animateBtn", state);
       };
       const updateInterval = () => {
         if (state.interval) {
