@@ -84,7 +84,7 @@ window.addEventListener("DOMContentLoaded", () => {
         allSoundSwitch.forEach((soundSwitch) => {
           const inputCheckbox = soundSwitch.querySelector("input");
 
-          inputCheckbox.checked = false;
+          inputCheckbox.checked = true;
         });
       };
 
