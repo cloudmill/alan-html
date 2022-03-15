@@ -117,7 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
           const inputCheckbox = tab.querySelector("input");
           const checked = inputCheckbox.checked;
 
-          video.muted = !checked;
+          video.muted = checked;
         })
       );
     }
