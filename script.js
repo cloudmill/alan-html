@@ -85,6 +85,12 @@ window.addEventListener("DOMContentLoaded", () => {
           const inputCheckbox = soundSwitch.querySelector("input");
 
           inputCheckbox.checked = true;
+
+          console.log(
+            "reset sound switch",
+            inputCheckbox,
+            inputCheckbox.checked
+          );
         });
       };
 
@@ -118,6 +124,8 @@ window.addEventListener("DOMContentLoaded", () => {
           const checked = inputCheckbox.checked;
 
           video.muted = checked;
+
+          console.log("click sound switch");
         })
       );
     }
@@ -304,13 +312,6 @@ window.addEventListener("DOMContentLoaded", () => {
         },
       });
 
-      // const tick = () => {
-      //   waves1.update();
-      //   waves2.update();
-
-      //   console.log("tick");
-      // };
-
       const handleWavesIntersection = (entries) => {
         entries.forEach(({ isIntersecting }) => {
           if (isIntersecting) {
@@ -358,14 +359,10 @@ window.addEventListener("DOMContentLoaded", () => {
         interval: null,
       };
 
-      console.log("forEach", { ...state });
-
       const updateSize = () => {
         state.size = String(
           Math.ceil(state.wrapper.getBoundingClientRect().width)
         );
-
-        console.log("updateSize", { ...state });
       };
       const updateBtn = () => {
         state.btn = alanBtnFake({
@@ -375,13 +372,9 @@ window.addEventListener("DOMContentLoaded", () => {
           left: "0",
           size: state.size,
         });
-
-        console.log("updateBtn", { ...state });
       };
       const updateStep = () => {
         state.step = 0;
-
-        console.log("updateStep", { ...state });
       };
 
       const normalizeStep = () => {
@@ -390,15 +383,11 @@ window.addEventListener("DOMContentLoaded", () => {
         if (state.step >= stepsCount) {
           state.step %= stepsCount;
         }
-
-        console.log("normalizeStep", { ...state });
       };
       const animateBtn = () => {
         normalizeStep();
 
         state.btn.switchState(ANIMATION_STEPS[state.step++]);
-
-        console.log("animateBtn", { ...state });
       };
       const updateInterval = () => {
         if (state.interval) {
@@ -407,8 +396,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
         animateBtn();
         state.interval = setInterval(animateBtn, ANIMATION_INTERVAL);
-
-        console.log("updateInterval", { ...state });
       };
 
       const update = () => {
@@ -416,8 +403,6 @@ window.addEventListener("DOMContentLoaded", () => {
         updateBtn();
         updateStep();
         updateInterval();
-
-        console.log("update", { ...state });
       };
 
       const updated = debounce(update, 150);
