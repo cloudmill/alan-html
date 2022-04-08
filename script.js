@@ -118,8 +118,6 @@ window.addEventListener("load", () => {
           const checked = inputCheckbox.checked;
 
           video.muted = checked;
-
-          console.log("click sound switch");
         })
       );
     }
