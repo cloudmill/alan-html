@@ -82,15 +82,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const resetAllSoundSwitch = () => {
         allSoundSwitch.forEach((soundSwitch) => {
-          const inputCheckbox = soundSwitch.querySelector("input");
-
-          inputCheckbox.checked = true;
-
-          console.log(
-            "reset sound switch",
-            inputCheckbox,
-            inputCheckbox.checked
-          );
+          setTimeout(() => {
+            const inputCheckbox = soundSwitch.querySelector("input");
+  
+            inputCheckbox.checked = true;
+  
+            console.log(
+              "reset sound switch",
+              inputCheckbox,
+              inputCheckbox.checked
+            );
+          })
         });
       };
 
