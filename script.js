@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   // legacy
   {
     try {
@@ -82,17 +82,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const resetAllSoundSwitch = () => {
         allSoundSwitch.forEach((soundSwitch) => {
-          setTimeout(() => {
-            const inputCheckbox = soundSwitch.querySelector("input");
-  
-            inputCheckbox.checked = true;
-  
-            console.log(
-              "reset sound switch",
-              inputCheckbox,
-              inputCheckbox.checked
-            );
-          })
+          const inputCheckbox = soundSwitch.querySelector("input");
+
+          inputCheckbox.checked = true;
         });
       };
 
