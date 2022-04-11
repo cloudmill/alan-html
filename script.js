@@ -1,4 +1,6 @@
 window.addEventListener("load", () => {
+  console.log("load");
+
   // legacy
   {
     try {
@@ -63,6 +65,8 @@ window.addEventListener("load", () => {
       const rewindAllVideo = () => {
         allVideo.forEach((video) => {
           try {
+            console.log("rewindAllVideo", video);
+
             video.currentTime = 0;
           } catch (e) {
             console.error(e);
@@ -73,6 +77,8 @@ window.addEventListener("load", () => {
       const muteAllVideo = () => {
         allVideo.forEach((video) => {
           try {
+            console.log("muteAllVideo", video);
+
             video.muted = true;
           } catch (e) {
             console.error(e);
@@ -82,6 +88,8 @@ window.addEventListener("load", () => {
 
       const resetAllSoundSwitch = () => {
         allSoundSwitch.forEach((soundSwitch) => {
+          console.log("resetAllSoundSwitch", soundSwitch);
+
           const inputCheckbox = soundSwitch.querySelector("input");
 
           inputCheckbox.checked = true;
@@ -100,9 +108,18 @@ window.addEventListener("load", () => {
         muteAll.classList.contains("w--current")
       );
 
+      console.log("tabs start", {
+        allVideo,
+        allMuteAll,
+        allSoundSwitch,
+        curMuteAll,
+      });
+
       allMuteAll.forEach((muteAll) =>
         muteAll.addEventListener("click", ({ currentTarget }) => {
           if (currentTarget !== curMuteAll) {
+            console.log("muteAll click", muteAll);
+
             resetAllTab();
 
             curMuteAll = currentTarget;
@@ -118,6 +135,8 @@ window.addEventListener("load", () => {
           const checked = inputCheckbox.checked;
 
           video.muted = checked;
+
+          console.log("soundSwitch click", soundSwitch);
         })
       );
     }
