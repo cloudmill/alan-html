@@ -21,6 +21,7 @@ window.addEventListener("load", () => {
     }
   }
 
+  /*
   // video play/pause on scroll
   {
     const allVideo = document.querySelectorAll("video:not(.always-play)");
@@ -127,210 +128,209 @@ window.addEventListener("load", () => {
   }
 
   // waves
-  /*
-    {
-      if (matchMedia("(min-width: 480px)").matches) {
-        // let interval = null;
+  {
+    if (matchMedia("(min-width: 480px)").matches) {
+      // let interval = null;
 
-        // const FPS = 30;
-        // const SPEED = (60 / FPS) * 2.5;
-        const SPEED = 3;
-        // const INTERVAL = 1000 / FPS;
+      // const FPS = 30;
+      // const SPEED = (60 / FPS) * 2.5;
+      const SPEED = 3;
+      // const INTERVAL = 1000 / FPS;
 
-        var waves1 = new SineWaves({
-          el: document.getElementById("waves"),
+      var waves1 = new SineWaves({
+        el: document.getElementById("waves"),
 
-          speed: SPEED,
-          running: false,
+        speed: SPEED,
+        running: false,
 
-          width: function () {
-            return document
-              .querySelector(".waves-wrapper")
-              .getBoundingClientRect().width;
+        width: function () {
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().width;
+        },
+
+        height: function () {
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().height;
+        },
+
+        ease: "SineInOut",
+
+        wavesWidth: "100%",
+
+        waves: [
+          {
+            timeModifier: 3,
+            lineWidth: 1,
+            amplitude: -400,
+            waveLength: 400,
+            segmentLength: 15,
           },
-
-          height: function () {
-            return document
-              .querySelector(".waves-wrapper")
-              .getBoundingClientRect().height;
+          {
+            type: "SineWave",
+            segmentLength: 1,
+            segmentLength: 15,
           },
+          {
+            timeModifier: 2,
+            lineWidth: 1,
+            amplitude: -370,
+            wavelength: 100,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 1,
+            lineWidth: 1,
+            amplitude: -500,
+            wavelength: 350,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 0.5,
+            lineWidth: 1,
+            amplitude: -380,
+            wavelength: 180,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 0.4,
+            lineWidth: 1,
+            amplitude: -300,
+            wavelength: 200,
+            segmentLength: 15,
+          },
+        ],
 
-          ease: "SineInOut",
+        // Called on window resize
+        resizeEvent: function () {
+          // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          // gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
+          // gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
+          // gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
 
-          wavesWidth: "100%",
+          // var index = -1;
+          // var length = this.waves.length;
+          // for (index = 0; index < length; index++) {
+          //   this.waves[index].strokeStyle = gradient;
+          // }
 
-          waves: [
-            {
-              timeModifier: 3,
-              lineWidth: 1,
-              amplitude: -400,
-              waveLength: 400,
-              segmentLength: 15,
-            },
-            {
-              type: "SineWave",
-              segmentLength: 1,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 2,
-              lineWidth: 1,
-              amplitude: -370,
-              wavelength: 100,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 1,
-              lineWidth: 1,
-              amplitude: -500,
-              wavelength: 350,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 0.5,
-              lineWidth: 1,
-              amplitude: -380,
-              wavelength: 180,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 0.4,
-              lineWidth: 1,
-              amplitude: -300,
-              wavelength: 200,
-              segmentLength: 15,
-            },
-          ],
+          this.waves.forEach(
+            (wave) => (wave.strokeStyle = "rgba(22, 106, 240, 1)")
+          );
 
-          // Called on window resize
-          resizeEvent: function () {
-            // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            // gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
-            // gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
-            // gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
+          // Clean Up
+        },
+      });
+      var waves2 = new SineWaves({
+        el: document.getElementById("waves_2"),
 
-            // var index = -1;
-            // var length = this.waves.length;
-            // for (index = 0; index < length; index++) {
-            //   this.waves[index].strokeStyle = gradient;
+        speed: SPEED,
+        running: false,
+
+        width: function () {
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().width;
+        },
+
+        height: function () {
+          return document
+            .querySelector(".waves-wrapper")
+            .getBoundingClientRect().height;
+        },
+
+        ease: "SineInOut",
+
+        wavesWidth: "100%",
+
+        waves: [
+          {
+            timeModifier: 3,
+            lineWidth: 1,
+            amplitude: -400,
+            waveLength: 400,
+            segmentLength: 15,
+          },
+          {
+            type: "SineWave",
+            segmentLength: 1,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 2,
+            lineWidth: 1,
+            amplitude: -370,
+            wavelength: 100,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 1,
+            lineWidth: 1,
+            amplitude: -500,
+            wavelength: 350,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 0.5,
+            lineWidth: 1,
+            amplitude: -380,
+            wavelength: 180,
+            segmentLength: 15,
+          },
+          {
+            timeModifier: 0.4,
+            lineWidth: 1,
+            amplitude: -300,
+            wavelength: 200,
+            segmentLength: 15,
+          },
+        ],
+
+        // Called on window resize
+        resizeEvent: function () {
+          // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          // gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
+          // gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
+          // gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
+
+          // var index = -1;
+          // var length = this.waves.length;
+          // for (index = 0; index < length; index++) {
+          //   this.waves[index].strokeStyle = gradient;
+          // }
+
+          this.waves.forEach(
+            (wave) => (wave.strokeStyle = "rgba(22, 106, 240, 1)")
+          );
+
+          // Clean Up
+        },
+      });
+
+      const handleWavesIntersection = (entries) => {
+        entries.forEach(({ isIntersecting }) => {
+          if (isIntersecting) {
+            // interval = setInterval(tick, INTERVAL);
+            waves1.running = true;
+            waves2.running = true;
+          } else {
+            // if (interval) {
+            //   clearInterval(interval);
             // }
-
-            this.waves.forEach(
-              (wave) => (wave.strokeStyle = "rgba(22, 106, 240, 1)")
-            );
-
-            // Clean Up
-          },
+            waves1.running = false;
+            waves2.running = false;
+          }
         });
-        var waves2 = new SineWaves({
-          el: document.getElementById("waves_2"),
+      };
 
-          speed: SPEED,
-          running: false,
+      const wavesObserver = new IntersectionObserver(handleWavesIntersection, {
+        rootMargin: "20% 0px",
+      });
 
-          width: function () {
-            return document
-              .querySelector(".waves-wrapper")
-              .getBoundingClientRect().width;
-          },
-
-          height: function () {
-            return document
-              .querySelector(".waves-wrapper")
-              .getBoundingClientRect().height;
-          },
-
-          ease: "SineInOut",
-
-          wavesWidth: "100%",
-
-          waves: [
-            {
-              timeModifier: 3,
-              lineWidth: 1,
-              amplitude: -400,
-              waveLength: 400,
-              segmentLength: 15,
-            },
-            {
-              type: "SineWave",
-              segmentLength: 1,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 2,
-              lineWidth: 1,
-              amplitude: -370,
-              wavelength: 100,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 1,
-              lineWidth: 1,
-              amplitude: -500,
-              wavelength: 350,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 0.5,
-              lineWidth: 1,
-              amplitude: -380,
-              wavelength: 180,
-              segmentLength: 15,
-            },
-            {
-              timeModifier: 0.4,
-              lineWidth: 1,
-              amplitude: -300,
-              wavelength: 200,
-              segmentLength: 15,
-            },
-          ],
-
-          // Called on window resize
-          resizeEvent: function () {
-            // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            // gradient.addColorStop(0.3, "rgba(48, 166, 255, 1)");
-            // gradient.addColorStop(0.5, "rgba(22, 106, 240, 1)");
-            // gradient.addColorStop(0.7, "rgba(22, 0, 157, 1)");
-
-            // var index = -1;
-            // var length = this.waves.length;
-            // for (index = 0; index < length; index++) {
-            //   this.waves[index].strokeStyle = gradient;
-            // }
-
-            this.waves.forEach(
-              (wave) => (wave.strokeStyle = "rgba(22, 106, 240, 1)")
-            );
-
-            // Clean Up
-          },
-        });
-
-        const handleWavesIntersection = (entries) => {
-          entries.forEach(({ isIntersecting }) => {
-            if (isIntersecting) {
-              // interval = setInterval(tick, INTERVAL);
-              waves1.running = true;
-              waves2.running = true;
-            } else {
-              // if (interval) {
-              //   clearInterval(interval);
-              // }
-              waves1.running = false;
-              waves2.running = false;
-            }
-          });
-        };
-
-        const wavesObserver = new IntersectionObserver(handleWavesIntersection, {
-          rootMargin: "20% 0px",
-        });
-
-        wavesObserver.observe(document.querySelector(".waves-wrapper"));
-      }
+      wavesObserver.observe(document.querySelector(".waves-wrapper"));
     }
+  }
   */
 
   // alan-btn
